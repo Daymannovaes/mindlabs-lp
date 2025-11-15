@@ -1,13 +1,19 @@
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased">
       {/* Navbar */}
-      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50" style={{ backgroundColor: '#172021' }}>
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-emerald-700 flex items-center justify-center text-xs font-semibold text-white">
-              S
-            </div>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo.svg"
+              alt="Solvelabs"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
             <span className="text-sm sm:text-base font-semibold tracking-tight text-white">Solvelabs</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-slate-300">
