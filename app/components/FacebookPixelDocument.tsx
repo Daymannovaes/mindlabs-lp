@@ -22,7 +22,7 @@ export function FacebookPixelHead() {
           `
         }}
       />
-      {/* <meta name="facebook-domain-verification" content="lb3mkgfapxrjap6h1faiytcyrlghdm" /> */}
+      <meta name="facebook-domain-verification" content="sqdlftxyzogfn58pxgdc3ynmlfl83m" />
     </>
   );
 }
