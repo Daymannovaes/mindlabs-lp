@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
 import { redirect } from '@/utils/redirect';
 import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar';
 
 // Frequency labels mapped to slider positions (0-100)
 const frequencySteps = [
@@ -106,35 +106,7 @@ export default function DeploymentsArticle() {
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-sans min-h-screen bg-slate-950 text-slate-100 antialiased`}>
-      {/* Navbar */}
-      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50" style={{ backgroundColor: '#172021' }}>
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/logo-solvelabs.png"
-              alt="Solvelabs"
-              width={32}
-              height={32}
-              className="h-8 w-8"
-            />
-            <span className="text-sm sm:text-base font-semibold tracking-tight text-white">Solvelabs</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-slate-300">
-            <Link href="/#problem" className="hover:text-emerald-400 transition-colors">Challenges</Link>
-            <Link href="/#services" className="hover:text-emerald-400 transition-colors">Services</Link>
-            <Link href="/#experience" className="hover:text-emerald-400 transition-colors">Experience</Link>
-            <Link href="/#contact" className="hover:text-emerald-400 transition-colors">Contact</Link>
-          </div>
-          <div className="hidden sm:flex">
-            <Link
-              href="/#contact"
-              className="inline-flex items-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-100 hover:bg-emerald-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
-            >
-              Get started
-            </Link>
-          </div>
-        </nav>
-      </header>
+      <Navbar variant="subpage" />
 
       {/* Article Hero */}
       <section className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
