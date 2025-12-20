@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Geist, Geist_Mono } from "next/font/google";
 import { redirect } from '@/utils/redirect';
+import { Footer } from '@/components/Footer';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -265,7 +266,7 @@ export default function Home() {
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
               <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-                Increasing Code Coverage
+                Increase Code Coverage
               </h3>
               <ul className="space-y-2 text-slate-300 text-sm flex-1 mb-4">
                 <li className="flex items-start">
@@ -443,7 +444,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-semibold text-white mb-2">10+</div>
+              <div className="text-4xl lg:text-5xl font-semibold text-white mb-2">15+</div>
               <div className="text-sm text-slate-400">Years of experience</div>
             </div>
             <div className="text-center">
@@ -457,12 +458,14 @@ export default function Home() {
           </div>
 
           <div className="mt-16 pt-12 border-t border-slate-800">
-            <h3 className="text-xl font-semibold text-white mb-6 text-center">Technologies we work with</h3>
+            <h3 className="text-xl font-semibold text-white mb-6 text-center">Technologies we're experts in</h3>
             <div className="flex flex-wrap justify-center gap-3">
             <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">JavaScript</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">TypeScript</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">React</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Node.js</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">NestJS</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Express.js</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Webpack</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Next.js</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Vue.js</span>
@@ -473,8 +476,16 @@ export default function Home() {
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">CI/CD</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Docker</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Kubernetes</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">AWS</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Firebase</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Vercel</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">GitHub Actions</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Jenkins</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">CircleCI</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Capacitor</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Testing Library</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Pupeteer</span>
+              <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Selenium</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Playwright</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">Cypress</span>
             </div>
@@ -515,46 +526,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800 bg-slate-950">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Solvelabs</h3>
-              <p className="text-sm text-slate-400">
-                JavaScript and TypeScript consultancy for engineering teams.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#services" className="hover:text-emerald-400 transition-colors">Architecture & Design</a></li>
-                <li><a href="#services" className="hover:text-emerald-400 transition-colors">Code Quality</a></li>
-                <li><a href="#services" className="hover:text-emerald-400 transition-colors">Custom Development</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-4">About</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="#services" className="hover:text-emerald-400 transition-colors">Our Services</a></li>
-                <li><a href="#problem" className="hover:text-emerald-400 transition-colors">The Problem</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li><a href="mailto:contact@solvelabs.dev" className="hover:text-emerald-400 transition-colors">contact@solvelabs.dev</a></li>
-                <li><a href="#contact" className="hover:text-emerald-400 transition-colors">Get Assessment</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 pt-8">
-            <p className="text-xs text-slate-500 text-center">
-              © {new Date().getFullYear()} Solvelabs. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
