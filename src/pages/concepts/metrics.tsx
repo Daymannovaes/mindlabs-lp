@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
+import { redirect } from '@/utils/redirect';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -237,10 +238,73 @@ export default function MetricsArticle() {
             </div>
           </div>
 
+
+          {/* Summary Table */}
+          <div className="mb-16">
+            <p className="text-lg text-slate-300 leading-relaxed mb-6">
+              The following table offers a comprehensive comparison of all metrics. By analyzing these together, organizations can identify current state and create a plan for improvement to achieve elite status.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-emerald-600 text-white">
+                    <th className="text-left py-4 px-4 font-semibold text-sm">Software delivery performance metric</th>
+                    <th className="text-left py-4 px-4 font-semibold text-sm">Elite</th>
+                    <th className="text-left py-4 px-4 font-semibold text-sm">High</th>
+                    <th className="text-left py-4 px-4 font-semibold text-sm">Medium</th>
+                    <th className="text-left py-4 px-4 font-semibold text-sm">Low</th>
+                  </tr>
+                </thead>
+                <tbody className="text-slate-300">
+                  <tr className="border-b border-slate-700 bg-slate-900/40">
+                    <td className="py-4 px-4">
+                      <div className="font-semibold text-white mb-1">Deployment frequency</div>
+                      <div className="text-sm text-slate-400">How often does your organization deploy code to production?</div>
+                    </td>
+                    <td className="py-4 px-4 text-sm bg-emerald-500/20 text-emerald-300 font-medium">On-demand (multiple deploys per day)</td>
+                    <td className="py-4 px-4 text-sm">Between once per week and once per month</td>
+                    <td className="py-4 px-4 text-sm">Between once per month and once every 6 months</td>
+                    <td className="py-4 px-4 text-sm">Fewer than once per six months</td>
+                  </tr>
+                  <tr className="border-b border-slate-700">
+                    <td className="py-4 px-4">
+                      <div className="font-semibold text-white mb-1">Lead time for changes</div>
+                      <div className="text-sm text-slate-400">How long does it take to go from code committed to code running in production?</div>
+                    </td>
+                    <td className="py-4 px-4 text-sm bg-emerald-500/20 text-emerald-300 font-medium">Less than one hour</td>
+                    <td className="py-4 px-4 text-sm">Between one day and one week</td>
+                    <td className="py-4 px-4 text-sm">Between one month and six months</td>
+                    <td className="py-4 px-4 text-sm">More than six months</td>
+                  </tr>
+                  <tr className="border-b border-slate-700 bg-slate-900/40">
+                    <td className="py-4 px-4">
+                      <div className="font-semibold text-white mb-1">Time to restore service</div>
+                      <div className="text-sm text-slate-400">How long does it generally take to restore service when an incident occurs?</div>
+                    </td>
+                    <td className="py-4 px-4 text-sm bg-emerald-500/20 text-emerald-300 font-medium">Less than one hour</td>
+                    <td className="py-4 px-4 text-sm">Less than one day</td>
+                    <td className="py-4 px-4 text-sm">Between one day and one week</td>
+                    <td className="py-4 px-4 text-sm">More than six months</td>
+                  </tr>
+                  <tr className="border-b border-slate-700">
+                    <td className="py-4 px-4">
+                      <div className="font-semibold text-white mb-1">Change failure rate</div>
+                      <div className="text-sm text-slate-400">What percentage of changes to production result in degraded service?</div>
+                    </td>
+                    <td className="py-4 px-4 text-sm bg-emerald-500/20 text-emerald-300 font-medium">0%–15%</td>
+                    <td className="py-4 px-4 text-sm">16%–30%</td>
+                    <td className="py-4 px-4 text-sm">16%–30%</td>
+                    <td className="py-4 px-4 text-sm">16%–30%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           {/* How to Improve */}
           <div className="mb-16">
             <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6">
-              Improving Your Metrics
+              How to Improve Your Metrics
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
@@ -301,12 +365,15 @@ export default function MetricsArticle() {
             foundation for sustainable high performance.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/#contact"
+            <button
+              type="button"
               className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
+              onClick={() => {
+                redirect("mailto:contact@solvelabs.dev?utm_source=metrics_article");
+              }}
             >
               Schedule a Consultation
-            </Link>
+            </button>
             <Link
               href="/"
               className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/50 px-8 py-3 text-base font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"

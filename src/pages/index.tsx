@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Geist, Geist_Mono } from "next/font/google";
+import { redirect } from '@/utils/redirect';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -492,12 +493,15 @@ export default function Home() {
             Let's discuss how we can support your JavaScript and TypeScript projects.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="mailto:contact@solvelabs.dev"
+            <button
+              type="button"
               className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
+              onClick={() => {
+                redirect("mailto:contact@solvelabs.dev");
+              }}
             >
               Get in touch
-            </a>
+            </button>
             <a
               href="mailto:contact@solvelabs.dev?subject=Consultation Request"
               className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/50 px-8 py-3 text-base font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
