@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.0.3",
+    "next": "16.0.10",
     "posthog-js": "^1.297.2",
     "posthog-node": "^5.13.2",
     "react": "19.2.0",
