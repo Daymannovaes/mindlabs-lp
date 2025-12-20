@@ -1,7 +1,91 @@
+import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
 import { redirect } from '@/utils/redirect';
+
+// Frequency labels mapped to slider positions (0-100)
+const frequencySteps = [
+  { max: 5, label: '1 deploy per year', level: 0 },
+  { max: 12, label: '2 deploys per year', level: 0 },
+  { max: 20, label: '1 deploy every 4 months', level: 0 },
+  { max: 28, label: '1 deploy every 2 months', level: 1 },
+  { max: 38, label: '1 deploy per month', level: 1 },
+  { max: 48, label: '2 deploys per month', level: 1 },
+  { max: 58, label: '1 deploy per week', level: 2 },
+  { max: 70, label: '2 deploys per week', level: 2 },
+  { max: 82, label: '1 deploy per day', level: 2 },
+  { max: 92, label: 'Multiple deploys per day', level: 3 },
+  { max: 100, label: 'On-demand deploys', level: 3 },
+];
+
+const getFrequencyFromSlider = (value: number) => {
+  for (const step of frequencySteps) {
+    if (value <= step.max) {
+      return step;
+    }
+  }
+  return frequencySteps[frequencySteps.length - 1];
+};
+
+const deploymentLevels = [
+  {
+    level: 0,
+    label: 'Low',
+    color: 'text-red-400',
+    bgColor: 'bg-red-500/20',
+    borderColor: 'border-red-500/30',
+    description: 'Deployments are rare, high-risk events requiring extensive planning and coordination.',
+    characteristics: [
+      'Releases require weeks of planning',
+      'Large batch sizes with many changes bundled',
+      'High failure rate when deploying',
+      'Recovery can take days or weeks',
+    ],
+  },
+  {
+    level: 1,
+    label: 'Medium',
+    color: 'text-amber-400',
+    bgColor: 'bg-amber-500/20',
+    borderColor: 'border-amber-500/30',
+    description: 'Deployments happen regularly but still feel like significant events.',
+    characteristics: [
+      'Monthly or quarterly release cycles',
+      'Some automation but many manual steps',
+      'Moderate failure rate',
+      'Recovery takes hours to days',
+    ],
+  },
+  {
+    level: 2,
+    label: 'High',
+    color: 'text-blue-400',
+    bgColor: 'bg-blue-500/20',
+    borderColor: 'border-blue-500/30',
+    description: 'Deployments are routine but still require some coordination.',
+    characteristics: [
+      'Weekly or bi-weekly releases',
+      'Good automation with CI/CD pipelines',
+      'Lower failure rate',
+      'Recovery typically within hours',
+    ],
+  },
+  {
+    level: 3,
+    label: 'Elite',
+    color: 'text-emerald-400',
+    bgColor: 'bg-emerald-500/20',
+    borderColor: 'border-emerald-500/30',
+    description: 'Deployments are a non-event. Code flows to production continuously.',
+    characteristics: [
+      'On-demand deployments, multiple per day',
+      'Fully automated with comprehensive testing',
+      'Very low failure rate (0-15%)',
+      'Recovery in minutes, not hours',
+    ],
+  },
+];
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,6 +98,11 @@ const geistMono = Geist_Mono({
 });
 
 export default function DeploymentsArticle() {
+  const [sliderValue, setSliderValue] = useState(95);
+
+  const currentFrequency = useMemo(() => getFrequencyFromSlider(sliderValue), [sliderValue]);
+  const currentLevel = deploymentLevels[currentFrequency.level];
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-sans min-h-screen bg-slate-950 text-slate-100 antialiased`}>
       {/* Navbar */}
@@ -125,132 +214,141 @@ export default function DeploymentsArticle() {
             </div>
           </div>
 
-          {/* When Delivery Stops Scaling With the Product */}
+          {/* Why Deployment Frequency Is a Metric for Success */}
           <div className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6">
-              When Delivery Stops Scaling With the Product
+              Why Deployment Frequency Is a Key Metric for Success
             </h2>
             <div className="prose prose-lg prose-invert max-w-none mb-8">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Growth changes everything about deployment. The application that was once a single service
-                becomes a collection of interdependent systems. Each system might have its own build process,
-                its own configuration, its own quirks.
+                The intuition that "fewer releases means fewer problems" feels right. If deployments are risky,
+                doing them less often should reduce risk. But research tells a different story.
 
                 <br /><br />
 
-                Staging environments multiply. The differences between environments—subtle at first—become
-                sources of unexpected failures. What works locally doesn't work in staging. What works in
-                staging breaks in production.
-              </p>
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Teams grow, and with them, the coordination overhead. Multiple squads now ship to the same
-                systems. Someone needs to decide the order. Someone needs to verify nothing conflicts.
-
-                <br /><br />
-
-                The informal knowledge that used to live in one person's head is now scattered across the
-                organization—or worse, has left with engineers who moved on.
-              </p>
-              <p className="text-lg text-slate-300 leading-relaxed">
-                Manual steps multiply quietly. Each new edge case gets a new workaround. Each workaround adds
-                a step to the checklist. The time between "code is ready" and "code is live" stretches from
-                hours to days.
-
-                <br /><br />
-
-                And when something does go wrong—when a deployment introduces a bug that slipped through—rolling
-                back becomes its own manual process, fraught with the same risks as the original release.
+                Studies across thousands of organizations have consistently shown that <strong>deployment frequency
+                is one of the strongest predictors of overall software delivery performance</strong>. Teams that
+                deploy more often—not less—tend to have lower failure rates and faster recovery times.
               </p>
             </div>
-            <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">The compounding effect</h3>
-              <p className="text-slate-300 text-sm mb-4">
-                Each of these friction points alone seems manageable. But they compound. The team deploys less
-                frequently because each deployment requires more effort. Less frequent deployments mean larger
-                releases. Larger releases are harder to test, harder to debug, and more likely to fail. Failed
-                releases reinforce the perception that deployments are risky, which leads to even more caution,
-                even more process, even less frequency.
-              </p>
-              <p className="text-slate-300 text-sm">
-                Research across thousands of organizations has consistently shown that deployment frequency is
-                one of the strongest predictors of overall software delivery performance. Teams that deploy
-                more often—not less—tend to have lower failure rates and faster recovery times. The intuition
-                that "fewer releases means fewer problems" is almost always wrong.
-              </p>
-            </div>
-          </div>
 
-          {/* The Hidden Cost of Human-Centered Deployments */}
-          <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-6">
-              The Hidden Cost of Human-Centered Deployments
-            </h2>
+            {/* Deployment Frequency Slider */}
+            <div className="bg-slate-900/60 rounded-xl border border-slate-800 p-8 mb-8">
+              <h3 className="text-xl font-semibold text-white mb-2 text-center">
+                Where Does Your Team Fall?
+              </h3>
+
+              {/* Current Frequency Label */}
+              <div className="text-center mb-6">
+                <span className={`text-2xl font-bold ${currentLevel.color}`}>
+                  {currentFrequency.label}
+                </span>
+              </div>
+
+              {/* Slider */}
+              <div className="mb-6">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={sliderValue}
+                  onChange={(e) => setSliderValue(Number(e.target.value))}
+                  className="w-full h-3 rounded-lg appearance-none cursor-pointer slider-thumb"
+                  style={{
+                    background: `linear-gradient(to right,
+                      #ef4444 0%,
+                      #f59e0b 33%,
+                      #3b82f6 66%,
+                      #10b981 100%)`
+                  }}
+                />
+                <div className="flex justify-between mt-3 text-xs text-slate-400">
+                  <span>1/year</span>
+                  <span>1/month</span>
+                  <span>1/week</span>
+                  <span>Multiple/day</span>
+                </div>
+              </div>
+
+              {/* Current Level Display */}
+              <div className={`rounded-lg border ${currentLevel.borderColor} ${currentLevel.bgColor} p-6`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className={`text-sm font-medium ${currentLevel.color}`}>{currentLevel.label} Performer</span>
+                  </div>
+                </div>
+                <p className="text-slate-300 text-sm mb-4">{currentLevel.description}</p>
+                <ul className="space-y-2">
+                  {currentLevel.characteristics.map((char, idx) => (
+                    <li key={idx} className="flex items-start text-sm text-slate-300">
+                      <span className={`h-1.5 w-1.5 rounded-full ${currentLevel.color.replace('text-', 'bg-')} mt-1.5 mr-2 flex-shrink-0`}></span>
+                      {char}
+                    </li>
+                  ))}
+                </ul>
+                {currentFrequency.level === 0 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      redirect("mailto:contact@solvelabs.dev?subject=Help%20Improving%20Deployment%20Frequency&utm_source=deployments_slider");
+                    }}
+                    className="mt-6 cursor-pointer inline-flex items-center justify-center rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/30 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
+                  >
+                    Learn how to fix →
+                  </button>
+                )}
+              </div>
+
+              {/* Level Comparison Bar */}
+              <div className="mt-6 grid grid-cols-4 gap-2">
+                {deploymentLevels.map((level, idx) => {
+                  const targetValues = [10, 35, 65, 95];
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setSliderValue(targetValues[idx])}
+                      className={`py-2 px-3 rounded-lg text-xs font-medium transition-all ${
+                        currentFrequency.level === idx
+                          ? `${level.bgColor} ${level.color} border ${level.borderColor}`
+                          : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800 border border-transparent'
+                      }`}
+                    >
+                      {level.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="prose prose-lg prose-invert max-w-none mb-8">
               <p className="text-lg text-slate-300 leading-relaxed">
-                The most visible cost of manual deployments is time—the hours spent coordinating, verifying,
-                and watching. But the deeper costs are the ones that don't show up in any dashboard. They
-                show up in team behavior, in product velocity, and in the gap between what you planned to
-                ship and what actually reached customers.
+                Elite engineering organizations deploy on-demand, often multiple times per day. Low performers
+                deploy less than once per month. The gap between these two groups isn't just about speed—it
+                correlates with every measure of engineering effectiveness.
               </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
-                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-amber-500"></span>
-                  Release anxiety shapes decisions
-                </h3>
-                <p className="text-slate-300 text-sm">
-                  When deployments feel risky, teams start making product decisions based on deployment
-                  constraints rather than customer value. Features get bundled together not because they
-                  belong together, but because "we're already deploying, so let's include this too."
-                  Urgent fixes wait for the next scheduled window. The release calendar starts driving
-                  the product calendar.
-                </p>
-              </div>
-              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
-                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-amber-500"></span>
-                  Iteration slows invisibly
-                </h3>
-                <p className="text-slate-300 text-sm">
-                  The fear of rolling back keeps teams from shipping experiments. A/B tests become
-                  logistically complex. Quick iterations on user feedback turn into multi-week cycles.
-                  The fast feedback loop that made your early product successful gets replaced by careful,
-                  batched releases that lag behind what customers actually want.
-                </p>
-              </div>
-              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
-                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-amber-500"></span>
-                  Knowledge silos create fragility
-                </h3>
-                <p className="text-slate-300 text-sm">
-                  When deployment knowledge lives in people rather than systems, those people become
-                  bottlenecks. They can't take vacation without creating risk. They can't focus on other
-                  work during release periods. And when they eventually leave—whether for a new role or
-                  a new company—they take irreplaceable context with them. The "deployment hero" who saves
-                  every release is also a single point of failure.
-                </p>
-              </div>
-              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
-                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-amber-500"></span>
-                  Near-misses become normalized
-                </h3>
-                <p className="text-slate-300 text-sm">
-                  In teams with manual deployments, close calls are common. A step was almost forgotten.
-                  A configuration was almost wrong. Someone caught it at the last minute. These near-misses
-                  get celebrated as saves rather than investigated as warnings. Each one is a signal that
-                  the process is fragile, but the pattern becomes invisible through repetition.
-                </p>
-              </div>
+
+            <div className="bg-gradient-to-r from-emerald-500/10 to-transparent border-l-4 border-emerald-500 pl-6 py-4 mb-8">
+              <p className="text-lg text-slate-200">
+                The key insight: <strong>speed and stability are not trade-offs</strong>. Elite teams achieve both.
+                They deploy more frequently <em>and</em> have fewer failures. The practices that enable frequent
+                deployment—automation, small batches, fast feedback—are the same practices that reduce risk.
+              </p>
             </div>
-            <div className="prose prose-lg prose-invert max-w-none mt-8">
+
+            <div className="prose prose-lg prose-invert max-w-none">
+              <p className="text-lg text-slate-300 leading-relaxed mb-6">
+                Manual deployments push teams in the opposite direction. Each deployment requires more effort,
+                so teams deploy less frequently. Less frequent deployments mean larger releases.
+
+                <br /><br />
+
+                Larger releases are harder to test, harder to debug, and more likely to fail. Failed releases
+                reinforce the perception that deployments are risky, which leads to even more caution, even
+                more process, even less frequency.
+              </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                All of these effects translate directly to business outcomes. Slower iteration means slower
-                response to market changes. Knowledge silos mean higher risk when key people are unavailable.
-                Release anxiety means features sit finished but unshipped, delivering no value to customers.
-                The engineering organization that should be accelerating growth becomes a constraint on it.
+                It's a vicious cycle that moves you further from elite performance with every iteration.
               </p>
             </div>
           </div>
@@ -269,11 +367,6 @@ export default function DeploymentsArticle() {
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
                 The reason isn't laziness or lack of priority. It's that manual processes become institutionalized
                 faster than anyone expects. The workarounds become procedures. The procedures become checklists.
-
-                <br /><br />
-
-                Each layer of process makes automation harder because there's now more to automate, more edge
-                cases to handle, more stakeholders who have adapted their workflows around the current system.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
                 Teams also adapt their behavior in ways that mask the problem. They ship less frequently, so
@@ -284,11 +377,6 @@ export default function DeploymentsArticle() {
 
                 They build in buffer time, so the delays are absorbed into project estimates. The problem
                 doesn't disappear—it gets normalized.
-              </p>
-              <p className="text-lg text-slate-300 leading-relaxed">
-                Meanwhile, the engineers who might fix the problem are fully occupied with feature work.
-                And every quarter, the features win, because their value is visible and immediate in a way
-                that infrastructure improvements are not.
               </p>
             </div>
           </div>
@@ -325,21 +413,9 @@ export default function DeploymentsArticle() {
             </div>
             <div className="bg-gradient-to-r from-emerald-500/10 to-transparent border-l-4 border-emerald-500 pl-6 py-4">
               <p className="text-lg text-slate-200">
-                The goal isn't automation for its own sake. It's restoring the tight feedback loop you had in
-                the early days—but at scale. It's making deployment a non-event so that shipping becomes the
+                The goal isn't automation for its own sake. <strong>It's restoring the tight feedback loop you had in
+                the early days—but at scale.</strong> It's making deployment a non-event so that shipping becomes the
                 default, not the exception.
-              </p>
-            </div>
-          </div>
-
-          {/* Stack Confirmation */}
-          <div className="mb-12">
-            <div className="prose prose-lg prose-invert max-w-none">
-              <p className="text-lg text-slate-300 leading-relaxed">
-                These patterns appear across every technology stack, but they're particularly acute in modern
-                JavaScript and TypeScript systems. The complexity of build outputs, the tight coupling between
-                frontend and backend releases, and the speed at which dependencies evolve all create additional
-                surface area for manual processes to accumulate.
               </p>
             </div>
           </div>
@@ -418,7 +494,7 @@ export default function DeploymentsArticle() {
       </article>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900 border-t border-slate-800">
+      <section className="py-16 pt-4 lg:pt-4 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">
             Let's Talk About Your Delivery Pipeline
