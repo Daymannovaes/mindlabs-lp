@@ -71,15 +71,20 @@ export default function TestingArticle() {
           {/* Opening Diagnosis */}
           <div className="prose prose-lg prose-invert max-w-none mb-12">
             <p className="text-xl text-slate-200 leading-relaxed mb-6">
-              There's a stage of company growth that's easy to recognize from the outside but hard to see when 
-              you're in it. The product has found its footing. Revenue is climbing. The team has grown from a 
-              handful of people who could hold the entire system in their heads to twenty, forty, maybe sixty 
-              engineers spread across multiple squads. Features that once took days now take weeks. Releases 
-              that once felt routine now require careful coordination. And bugs keep appearing in parts of the 
+              There's a stage of company growth that's easy to recognize from the outside but hard to see when
+              you're in it. The product has found its footing. Revenue is climbing. The team has grown from a
+              handful of people who could hold the entire system in their heads to twenty, forty, maybe sixty
+              engineers spread across multiple squads.
+
+              <br />
+              <br />
+
+              At this stage, features that once took days now take weeks. Releases
+              that once felt routine now require careful coordination. And bugs keep appearing in parts of the
               codebase that nobody remembers touching.
             </p>
             <p className="text-lg text-slate-300 leading-relaxed">
-              If this sounds familiar, you're not alone. It's a pattern we see repeatedly in growing software 
+              If this sounds familiar, you're not alone. It's a pattern we see repeatedly in growing software
               companies—and it rarely has anything to do with the talent on the team.
             </p>
           </div>
@@ -91,21 +96,23 @@ export default function TestingArticle() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                The path here is almost always rational. In the early days, speed was everything. You were 
-                validating ideas, iterating on customer feedback, racing to find product-market fit. Writing 
-                comprehensive automated tests felt like a luxury you couldn't afford. And honestly? It probably was. 
-                The codebase was small enough that manual verification worked. The team was small enough that 
-                everyone knew what everyone else was building.
+                The path here is almost always rational. In the early days, speed was everything. You were
+                validating ideas, iterating on customer feedback, racing to find product-market fit. Writing
+                comprehensive automated tests felt like a luxury you couldn't afford. And honestly? It probably was.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Then the company grew. New engineers joined. Features multiplied. The original team members who 
-                understood the system's quirks moved into leadership roles or left for new opportunities. The 
-                codebase became too large for anyone to hold in their head. But the habits formed in those early 
+                But now the company grew. New engineers joined and features multiplied. The original team members who
+                understood the system's quirks moved into leadership roles or left for new opportunities.
+
+                <br />
+                <br />
+                The
+                codebase became too large for anyone to hold in their head. But the habits formed in those early
                 days—ship fast, verify manually, fix it if it breaks—those habits persisted.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                This isn't a failure of discipline. It's the natural consequence of prioritizing what mattered 
-                most at each stage. The problem is that what worked at ten engineers actively works against you 
+                This isn't a failure of discipline. It's the natural consequence of prioritizing what mattered
+                most at each stage. The problem is that what worked at ten engineers actively works against you
                 at fifty.
               </p>
             </div>
@@ -118,8 +125,8 @@ export default function TestingArticle() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none mb-8">
               <p className="text-lg text-slate-300 leading-relaxed">
-                The obvious cost is bugs in production. But the more damaging effects are the ones that don't 
-                show up in your error logs. They show up in velocity reports, in team morale, and in the growing 
+                The obvious cost is bugs in production. But the more damaging effects are the ones that don't
+                show up in your error logs. They show up in velocity reports, in team morale, and in the growing
                 gap between what your roadmap promises and what your team can actually deliver.
               </p>
             </div>
@@ -130,8 +137,10 @@ export default function TestingArticle() {
                   Engineers stop refactoring
                 </h3>
                 <p className="text-slate-300 text-sm">
-                  When there's no safety net, even experienced developers avoid improving code they don't own. 
-                  Technical debt compounds silently because touching legacy code feels too risky. The codebase 
+                  When there's no safety net, even experienced developers avoid improving code they don't own.
+                  <br />
+                  <br />
+                  Technical debt compounds silently because touching legacy code feels too risky. The codebase
                   calcifies around its oldest, most problematic patterns.
                 </p>
               </div>
@@ -141,9 +150,12 @@ export default function TestingArticle() {
                   Small changes take longer than expected
                 </h3>
                 <p className="text-slate-300 text-sm">
-                  What looks like a two-hour task turns into a two-day task. Engineers spend more time manually 
-                  verifying that their change didn't break something unrelated than they spend writing the change 
-                  itself. This overhead is invisible in sprint planning but very real in delivery.
+                  What looks like a two-hour task turns into a two-day task.
+                  <br />
+                  <br />
+                  Engineers spend more time manually
+                  verifying that their change didn't break something unrelated than they spend writing the change
+                  itself.
                 </p>
               </div>
               <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
@@ -152,8 +164,10 @@ export default function TestingArticle() {
                   Code review becomes a bottleneck
                 </h3>
                 <p className="text-slate-300 text-sm">
-                  Without automated verification, reviewers feel responsible for catching bugs manually. Reviews 
-                  take longer. Senior engineers become gatekeepers rather than force multipliers. The team's 
+                  Without automated verification, Senior engineers become gatekeepers rather than force multipliers.
+                  <br />
+                  <br />
+                  The team's
                   throughput becomes limited by the availability of a few key people.
                 </p>
               </div>
@@ -163,16 +177,19 @@ export default function TestingArticle() {
                   Releases lose confidence
                 </h3>
                 <p className="text-slate-300 text-sm">
-                  Deployment becomes something the team dreads rather than celebrates. Release windows shrink. 
-                  Feature freezes extend. The gap between "code complete" and "in production" stretches from 
-                  hours to days or weeks. Customers wait longer for the value you've already built.
+                  Deployment becomes something the team dreads rather than celebrates.
+
+                  <br />
+                  <br />
+                  The gap between "code complete" and "in production" increases from
+                  hours to days or weeks. <strong>Customers wait longer for the value you've already built.</strong>
                 </p>
               </div>
             </div>
             <div className="prose prose-lg prose-invert max-w-none mt-8">
               <p className="text-lg text-slate-300 leading-relaxed">
-                Each of these effects slows your ability to respond to the market. Features ship later. 
-                Competitors move faster. The engineering org that was once your competitive advantage starts 
+                Each of these effects slows your ability to respond to the market. Features ship later.
+                Competitors move faster. The engineering org that was once your competitive advantage starts
                 to feel like a constraint on growth.
               </p>
             </div>
@@ -185,20 +202,19 @@ export default function TestingArticle() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                The instinct is to say "we'll fix it later, after this launch." But the economics work against 
-                you. Every month you wait, the codebase grows. Every new engineer onboarded inherits the existing 
+                The instinct is to say "we'll fix it later, after this launch." But the economics work against
+                you. Every month you wait, the codebase grows. Every new engineer onboarded inherits the existing
                 culture. Every feature shipped without coverage makes the next feature harder to verify.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                There's also a knowledge problem. The engineers who understood why certain systems were built the 
-                way they were—who knew which assumptions were safe and which were fragile—those engineers move on. 
-                What remains is code that works for reasons no one fully understands. Adding safety nets to that 
-                code becomes an archaeological project, not an engineering one.
+                There's also a knowledge problem. The engineers who understood why certain systems were built the
+                way they were, already left the company.
+                What remains is code that works for reasons no one fully understands.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Meanwhile, the team's mental model of the system grows increasingly disconnected from reality. 
-                Everyone thinks they know which parts are stable and which are risky. But without automated 
-                verification, those assumptions go untested. The bugs that slip through are precisely the ones 
+                Meanwhile, the team's mental model of the system grows increasingly disconnected from reality.
+                Everyone thinks they know which parts are stable and which are risky. But without automated
+                verification, those assumptions go untested. The bugs that slip through are precisely the ones
                 no one expected.
               </p>
             </div>
@@ -208,9 +224,9 @@ export default function TestingArticle() {
           <div className="mb-12">
             <div className="bg-gradient-to-r from-emerald-500/10 to-transparent border-l-4 border-emerald-500 pl-6 py-4">
               <p className="text-lg text-slate-200">
-                These patterns appear across technology stacks, but they're especially common in modern JavaScript 
-                and TypeScript systems. The combination of rapidly evolving dependencies, shared logic between 
-                frontend and backend, and the sheer speed of iteration creates fertile ground for unverified 
+                These patterns appear across technology stacks, but they're especially common in modern JavaScript
+                and TypeScript systems. The combination of rapidly evolving dependencies, shared logic between
+                frontend and backend, and the sheer speed of iteration creates fertile ground for unverified
                 assumptions to compound.
               </p>
             </div>
@@ -223,21 +239,21 @@ export default function TestingArticle() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                The challenge with addressing this internally is that the team is already at capacity. The same 
-                engineers you'd ask to build testing infrastructure are the ones shipping features, fixing 
-                production issues, and onboarding new hires. Asking them to also retrofit coverage onto legacy 
+                The challenge with addressing this internally is that the team is already at capacity. The same
+                engineers you'd ask to build testing infrastructure are the ones shipping features, fixing
+                production issues, and onboarding new hires. Asking them to also retrofit coverage onto legacy
                 systems—while maintaining their current velocity—is asking for something that rarely materializes.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                This is where an external partner can create leverage. Not to replace your team's judgment, but 
-                to provide dedicated focus on building the infrastructure your team needs to move faster. Someone 
-                who can work alongside your engineers, establish the patterns that make sense for your codebase, 
+                This is where an external partner can create leverage. Not to replace your team's judgment, but
+                to provide dedicated focus on building the infrastructure your team needs to move faster. Someone
+                who can work alongside your engineers, establish the patterns that make sense for your codebase,
                 and create momentum that outlasts the engagement.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                The goal isn't to achieve some arbitrary coverage target. It's to give your team the confidence 
-                to refactor, the freedom to ship without fear, and the ability to onboard new engineers who can 
-                contribute safely from day one. It's to make your engineering organization a growth accelerator 
+                The goal isn't to achieve some arbitrary coverage target. It's to give your team the confidence
+                to refactor, the freedom to ship without fear, and the ability to onboard new engineers who can
+                contribute safely from day one. It's to make your engineering organization a growth accelerator
                 again, not a bottleneck.
               </p>
             </div>
@@ -253,9 +269,9 @@ export default function TestingArticle() {
             Let's Assess Where You Stand
           </h2>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            If any of this resonated, we'd welcome a conversation. Not a sales pitch—just an honest 
-            assessment of where your testing infrastructure stands and what it would take to get it 
-            where it needs to be. Sometimes that's a quick fix. Sometimes it's a longer road. Either 
+            If any of this resonated, we'd welcome a conversation. Not a sales pitch—just an honest
+            assessment of where your testing infrastructure stands and what it would take to get it
+            where it needs to be. Sometimes that's a quick fix. Sometimes it's a longer road. Either
             way, clarity is the first step.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
