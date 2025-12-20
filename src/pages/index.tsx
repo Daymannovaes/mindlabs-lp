@@ -51,7 +51,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-200 mb-4">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              <span>+15 years of experience</span>
+              <span>+15 years at the market</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white mb-6">
               JavaScript and TypeScript expertise for engineering teams
@@ -416,6 +416,41 @@ export default function Home() {
                 <li className="flex items-start">
                   <span className="text-slate-500 mr-2 mt-1">•</span>
                   <span>Production-ready code your team can maintain</span>
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              >
+                Learn more
+              </a>
+            </div>
+
+            <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
+              <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                AI-Powered Development
+              </h3>
+              <ul className="space-y-2 text-slate-300 text-sm flex-1 mb-4">
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2 mt-1">•</span>
+                  <span>Integrate AI tools into your development workflow</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2 mt-1">•</span>
+                  <span>AI-assisted code review and documentation</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2 mt-1">•</span>
+                  <span>Automated test generation with AI</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2 mt-1">•</span>
+                  <span>Train your team on effective AI coding practices</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2 mt-1">•</span>
+                  <span>Accelerate SDLC without sacrificing quality</span>
                 </li>
               </ul>
               <a
