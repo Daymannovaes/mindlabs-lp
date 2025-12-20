@@ -239,22 +239,66 @@ export default function TestingArticle() {
             </h2>
             <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                The challenge with addressing this internally is that the team is already at capacity. The same
-                engineers you'd ask to build testing infrastructure are the ones shipping features, fixing
-                production issues, and onboarding new hires. Asking them to also retrofit coverage onto legacy
-                systems—while maintaining their current velocity—is asking for something that rarely materializes.
+                <strong>The challenge with fixing this internally isn’t motivation or competence — it’s capacity.</strong> The same engineers you would rely on to improve test coverage are already:
               </p>
+              <ul className="text-lg text-slate-300 leading-relaxed mb-6 list-disc list-inside space-y-2">
+                <li>Shipping revenue-critical features under deadline pressure</li>
+                <li>Responding to production issues and regressions</li>
+                <li>Supporting releases that require extra verification</li>
+                <li>Onboarding new engineers into an already complex codebase</li>
+              </ul>
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                This is where an external partner can create leverage. Not to replace your team's judgment, but
-                to provide dedicated focus on building the infrastructure your team needs to move faster. Someone
-                who can work alongside your engineers, establish the patterns that make sense for your codebase,
-                and create momentum that outlasts the engagement.
+                <strong>This is where an external partner can create leverage.</strong>
               </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 mb-8">
+              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
+                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Dedicated focus without distraction
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  Your team stays on the product roadmap while specialists build the testing infrastructure
+                  in parallel. No context switching, no competing priorities—just steady progress on both fronts.
+                </p>
+              </div>
+              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
+                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Patterns that work the first time
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  We have worked with hundreds of codebases like yours. We know which testing
+                  strategies fit your architecture, which corners to cut, and which investments pay off quickly.
+                </p>
+              </div>
+              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
+                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Momentum that compounds
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  The hardest part is starting. Once the foundation is in place and the team sees tests
+                  catching real bugs, the culture shifts. Engineers start writing tests because it feels
+                  faster, not because someone told them to.
+                </p>
+              </div>
+              <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
+                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Knowledge transfer built in
+                </h3>
+                <p className="text-slate-300 text-sm">
+                  The goal isn't to create dependency—it's to leave your team more capable than before.
+                  Patterns, tooling, and practices get embedded in your codebase and your engineers' habits.
+                </p>
+              </div>
+            </div>
+            <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed">
                 The goal isn't to achieve some arbitrary coverage target. It's to give your team the confidence
                 to refactor, the freedom to ship without fear, and the ability to onboard new engineers who can
-                contribute safely from day one. It's to make your engineering organization a growth accelerator
-                again, not a bottleneck.
+                contribute safely from day one.
               </p>
             </div>
           </div>
@@ -263,10 +307,10 @@ export default function TestingArticle() {
       </article>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900 border-t border-slate-800">
+      <section className="py-16 pt-2 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">
-            Let's Assess Where You Stand
+            We Can Assess Where You Stand
           </h2>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
             If any of this resonated, we'd welcome a conversation. Not a sales pitch—just an honest
