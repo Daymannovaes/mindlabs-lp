@@ -22,7 +22,7 @@ export default function TestingArticle() {
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo.svg"
+              src="/logo-solvelabs.png"
               alt="Solvelabs"
               width={32}
               height={32}

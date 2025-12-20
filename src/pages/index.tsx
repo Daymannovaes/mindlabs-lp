@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import { Geist, Geist_Mono } from "next/font/google";
 import { redirect } from '@/utils/redirect';
@@ -14,37 +15,129 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} font-sans min-h-screen bg-slate-950 text-slate-100 antialiased`}>
       {/* Navbar */}
-      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50" style={{ backgroundColor: '#172021' }}>
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo.svg"
-              alt="Solvelabs"
-              width={32}
-              height={32}
-              className="h-8 w-8"
-            />
-            <span className="text-sm sm:text-base font-semibold tracking-tight text-white">Solvelabs</span>
+      <header className="fixed top-0 left-0 right-0 z-50">
+        {/* Gradient line at top */}
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
+        
+        {/* Glass navbar container */}
+        <div className="bg-slate-950/70 backdrop-blur-xl border-b border-white/[0.08]">
+          <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo */}
+              <a href="/" className="flex items-center gap-3 group">
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <Image
+                    src="/logo-solvelabs.png"
+                    alt="Solvelabs"
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 relative"
+                  />
+                </div>
+                <span className="text-lg font-semibold tracking-tight bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                  Solvelabs
+                </span>
+              </a>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center">
+                <div className="flex items-center gap-1 bg-white/[0.03] rounded-full px-2 py-1.5 border border-white/[0.05]">
+                  {[
+                    { href: '#problem', label: 'Challenges' },
+                    { href: '#services', label: 'Services' },
+                    { href: '#experience', label: 'Experience' },
+                    { href: '#contact', label: 'Contact' },
+                  ].map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="relative px-4 py-2 text-sm font-medium text-slate-400 hover:text-white transition-colors duration-200 rounded-full hover:bg-white/[0.05]"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="hidden sm:flex items-center gap-4">
+                <a
+                  href="#contact"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:shadow-emerald-500/40 hover:scale-[1.02]"
+                >
+                  <span className="relative z-10">Get started</span>
+                  <svg 
+                    className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </a>
+              </div>
+
+              {/* Mobile menu button */}
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden relative p-2 text-slate-400 hover:text-white transition-colors"
+              >
+                <span className="sr-only">Open menu</span>
+                <div className="w-6 h-5 relative flex flex-col justify-between">
+                  <span className={`block h-0.5 w-6 bg-current transform transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-current transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+                  <span className={`block h-0.5 w-6 bg-current transform transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                </div>
+              </button>
+            </div>
+          </nav>
+        </div>
+
+        {/* Mobile menu */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="bg-slate-950/95 backdrop-blur-xl border-b border-white/[0.08] px-4 py-4 space-y-1">
+            {[
+              { href: '#problem', label: 'Challenges' },
+              { href: '#services', label: 'Services' },
+              { href: '#experience', label: 'Experience' },
+              { href: '#contact', label: 'Contact' },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/[0.05] rounded-lg transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="pt-2 px-4">
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-lg shadow-emerald-500/25"
+              >
+                Get started
+              </a>
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm text-slate-300">
-            <a href="#problem" className="hover:text-emerald-400 transition-colors">Challenges</a>
-            <a href="#services" className="hover:text-emerald-400 transition-colors">Services</a>
-            <a href="#experience" className="hover:text-emerald-400 transition-colors">Experience</a>
-            <a href="#contact" className="hover:text-emerald-400 transition-colors">Contact</a>
-          </div>
-          <div className="hidden sm:flex">
-            <a
-              href="#contact"
-              className="inline-flex items-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-100 hover:bg-emerald-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition"
-            >
-              Get started
-            </a>
-          </div>
-        </nav>
+        </div>
       </header>
+
+      {/* Spacer for fixed navbar */}
+      <div className="h-[65px]" />
 
       {/* Hero Section */}
       <section className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
