@@ -354,13 +354,13 @@ export default function MetricsArticle() {
       </article>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900 border-t border-slate-800">
+      <section className="py-16 pt-4 lg:pt-4 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">
             Ready to Improve Your Metrics?
           </h2>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            At Solvelabs, we've helped dozens of engineering teams improve their DORA metrics through better
+            At Solvelabs, we've helped dozens of engineering teams improve their metrics through better
             CI/CD pipelines, testing strategies, and development practices. Let us help you build the
             foundation for sustainable high performance.
           </p>
