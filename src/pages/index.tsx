@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Geist, Geist_Mono } from "next/font/google";
 import { redirect } from '@/utils/redirect';
+import { analytics } from '@/utils/analytics';
 import { Footer } from '@/components/Footer';
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -255,12 +256,16 @@ export default function Home() {
                   <span>Team training</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'devops-consultation' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
 
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
@@ -290,12 +295,16 @@ export default function Home() {
                   <span>Create strategy to systematically increase coverage</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'increase-code-coverage' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
 
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
@@ -325,12 +334,16 @@ export default function Home() {
                   <span>Reduce technical debt without disrupting development</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'refactor-legacy-code' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
 
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
@@ -356,12 +369,16 @@ export default function Home() {
                   <span>Reduce bugs and accelerate development</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'code-quality-standards' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
 
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
@@ -387,12 +404,16 @@ export default function Home() {
                   <span>Level up your entire engineering team</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'consulting-mentoring' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
 
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
@@ -418,12 +439,16 @@ export default function Home() {
                   <span>Production-ready code your team can maintain</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'custom-development' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
 
             <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6 flex flex-col">
@@ -453,12 +478,16 @@ export default function Home() {
                   <span>Accelerate SDLC without sacrificing quality</span>
                 </li>
               </ul>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  analytics.trackCustom('service-learn-more-click', { service: 'ai-powered-development' });
+                  window.location.href = '#contact';
+                }}
+                className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-100 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               >
                 Learn more
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -548,12 +577,15 @@ export default function Home() {
             >
               Get in touch
             </button>
-            <a
-              href="mailto:contact@solvelabs.dev?subject=Consultation Request"
+            <button
+              type="button"
+              onClick={() => {
+                redirect("mailto:contact@solvelabs.dev?subject=Consultation Request");
+              }}
               className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/50 px-8 py-3 text-base font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
             >
               Schedule a call
-            </a>
+            </button>
           </div>
           <p className="mt-6 text-sm text-slate-400">
             No obligation—just a conversation about how we can help your team build better JavaScript and TypeScript applications.

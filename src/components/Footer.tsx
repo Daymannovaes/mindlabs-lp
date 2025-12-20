@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { redirect } from '@/utils/redirect';
 
 interface FooterProps {
   /** The current page path to highlight in the Resources section */
@@ -56,7 +57,15 @@ export function Footer({ currentPage }: FooterProps) {
           <div>
             <h4 className="text-sm font-semibold text-white mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="mailto:contact@solvelabs.dev" className="hover:text-emerald-400 transition-colors">contact@solvelabs.dev</a></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => redirect("mailto:contact@solvelabs.dev")}
+                  className="hover:text-emerald-400 transition-colors"
+                >
+                  contact@solvelabs.dev
+                </button>
+              </li>
               <li><Link href="/#contact" className="hover:text-emerald-400 transition-colors">Get Assessment</Link></li>
             </ul>
           </div>
