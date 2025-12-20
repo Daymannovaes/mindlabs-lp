@@ -24,27 +24,26 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-200 mb-4">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              <span>+15 years at the market</span>
+              <span>15+ years in the ecosystem</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white mb-6">
-              JavaScript and TypeScript expertise for engineering teams
+              JavaScript and TypeScript expertise for growing startups
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              We help engineering teams build better applications. From architecture and code quality
-              to tooling and best practices—we bring deep expertise to your projects.
+            We help engineering teams build better applications. From architecture and code quality to tooling and best practices—we bring deep expertise to your most important technical challenges.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
               >
-                30min Free Consultation
+                Schedule a free consultation
               </a>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/50 px-6 py-3 text-base font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950 transition-colors"
               >
-                See our services
+                See how we can help
               </a>
             </div>
           </div>
@@ -56,11 +55,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">
-              Common challenges engineering teams face
+              Challenges we help teams solve
             </h2>
             <p className="text-lg text-slate-300">
-              Many JavaScript and TypeScript teams struggle with the same fundamental issues that slow down delivery,
-              increase risk, and make development frustrating.
+              Growing engineering teams often face similar obstacles. We specialize in identifying
+              the root causes and implementing solutions that compound over time.
             </p>
           </div>
 
@@ -136,53 +135,53 @@ export default function Home() {
           </div>
 
           <div className="mt-12 pt-12 border-t border-slate-800">
-            <h3 className="text-xl font-semibold text-white mb-6">The real cost</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">The impact when left unaddressed</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
                 <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  On your team
+                  On the engineering team
                 </h4>
                 <ul className="space-y-2 text-slate-300 text-sm">
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Deployments become risky, manual processes that take hours or days</span>
+                    <span>Deployments become high-risk events requiring extensive coordination</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Production incidents and bug reports pile up faster than they can be fixed</span>
+                    <span>Bug reports accumulate faster than the team can address them</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Team velocity slows as developers spend more time fixing bugs than building features</span>
+                    <span>Velocity slows as more time goes to maintenance than new features</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Critical parts of the codebase become "no-touch zones" that block new development</span>
+                    <span>Critical parts of the codebase become difficult to modify safely</span>
                   </li>
                 </ul>
               </div>
               <div className="bg-slate-900/60 rounded-lg border border-slate-800 p-6">
                 <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  On your business
+                  On the business
                 </h4>
                 <ul className="space-y-2 text-slate-300 text-sm">
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Feature delivery slows down, missing market opportunities</span>
+                    <span>Feature delivery slows, affecting competitiveness and roadmap commitments</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Customer-facing bugs and performance issues damage reputation</span>
+                    <span>Customer-facing issues impact trust and retention</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Hiring becomes harder as developers avoid working with legacy codebases</span>
+                    <span>Hiring and retention become more challenging</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-gray-400 mr-2 mt-1">•</span>
-                    <span>Technical debt compounds, making future improvements exponentially more expensive</span>
+                    <span>Technical debt compounds, making future improvements more expensive</span>
                   </li>
                 </ul>
               </div>
@@ -196,11 +195,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">
-              Services we offer
+              What we offer
             </h2>
             <p className="text-lg text-slate-300">
-              From architecture reviews to hands-on development, we provide JavaScript and TypeScript expertise
-              tailored to your team's needs.
+              From architecture reviews and hands-on development to team training and process improvement—we
+              provide JavaScript and TypeScript expertise tailored to your team's specific needs and stage of growth.
             </p>
           </div>
 
@@ -473,8 +472,8 @@ export default function Home() {
               Our experience
             </h2>
             <p className="text-lg text-slate-300">
-              We've worked with engineering teams across industries, from startups to enterprise companies,
-              helping them build better JavaScript and TypeScript applications.
+              We've partnered with engineering teams across industries—from early-stage startups to
+              established companies—helping them build robust, maintainable JavaScript and TypeScript applications.
             </p>
           </div>
 
@@ -494,7 +493,7 @@ export default function Home() {
           </div>
 
           <div className="mt-16 pt-12 border-t border-slate-800">
-            <h3 className="text-xl font-semibold text-white mb-6 text-center">Technologies we're experts in</h3>
+            <h3 className="text-xl font-semibold text-white mb-6 text-center">Technologies we specialize in</h3>
             <div className="flex flex-wrap justify-center gap-3">
             <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">JavaScript</span>
               <span className="px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full text-sm font-medium text-slate-300">TypeScript</span>
@@ -536,8 +535,8 @@ export default function Home() {
             Let's work together
           </h2>
           <p className="text-lg text-slate-300 mb-8">
-            Whether you need a one-time audit, ongoing guidance, or hands-on development work, we're here to help.
-            Let's discuss how we can support your JavaScript and TypeScript projects.
+            Whether you need a one-time consultation, ongoing technical guidance, or hands-on development
+            support—we're here to help. Let's discuss how we can support your team's goals.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -560,7 +559,7 @@ export default function Home() {
             </button>
           </div>
           <p className="mt-6 text-sm text-slate-400">
-            No obligation—just a conversation about how we can help your team build better JavaScript and TypeScript applications.
+            Free 30-minute consultation—no obligation, just a conversation about your needs.
           </p>
         </div>
       </section>
