@@ -30,7 +30,7 @@ export function Navbar({ variant = 'home' }: NavbarProps) {
       <header className="fixed top-0 left-0 right-0 z-50">
         {/* Gradient line at top */}
         <div className="h-[1px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
-        
+
         {/* Glass navbar container */}
         <div className="bg-slate-950/70 backdrop-blur-xl border-b border-white/[0.08]">
           <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@ export function Navbar({ variant = 'home' }: NavbarProps) {
                 <div className="relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <Image
-                    src="/logo-solvelabs.png"
+                    src="/logo.svg"
                     alt="Solvelabs"
                     width={36}
                     height={36}
@@ -74,10 +74,10 @@ export function Navbar({ variant = 'home' }: NavbarProps) {
                   className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:shadow-emerald-500/40 hover:scale-[1.02]"
                 >
                   <span className="relative z-10">Get started</span>
-                  <svg 
-                    className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
+                  <svg
+                    className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -104,7 +104,7 @@ export function Navbar({ variant = 'home' }: NavbarProps) {
         </div>
 
         {/* Mobile menu */}
-        <div 
+        <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             mobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
           }`}
